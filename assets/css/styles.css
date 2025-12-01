@@ -772,3 +772,25 @@ p.lead {
   .products-grid, .gallery-grid { grid-template-columns: 1fr; gap: 12px; }
   .section[style*="background: linear-gradient"] { padding: 40px 0 !important; }
 }
+
+/* ==================== VIDEO SECTION STYLE ==================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* Lebar maksimal */
+  margin: 0 auto;
+  padding-bottom: 56.25%; /* Rasio 16:9 agar responsif */
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 29, 57, 0.2);
+  border: 4px solid white;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

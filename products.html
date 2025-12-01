@@ -17,19 +17,21 @@
 <link rel="icon" href="assets/fav/favicon.png" sizes="any">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-  /* --- GAYA KHUSUS VIDEO (LANGSUNG DITANAM DISINI AGAR ANTI-GAGAL) --- */
+  /* CSS TAMBAHAN KHUSUS HALAMAN INI */
+
+  /* 1. GAYA KHUSUS VIDEO AGAR RAPI & RESPONSIF */
   .video-container {
     position: relative;
     width: 100%;
     max-width: 900px; /* Lebar maksimal video */
     margin: 0 auto;   /* Posisi tengah otomatis */
-    padding-bottom: 56.25%; /* Rasio 16:9 agar responsif di HP */
+    padding-bottom: 56.25%; /* Rasio 16:9 agar responsif */
     height: 0;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(11, 29, 57, 0.2);
     border: 4px solid white;
-    background: #000; /* Latar belakang hitam saat loading */
+    background: #000;
   }
 
   .video-container iframe {
@@ -40,14 +42,14 @@
     height: 100%;
   }
 
-  /* --- GAYA TAMBAHAN LAINNYA --- */
+  /* 2. MENU MOBILE RATA KIRI */
   @media (max-width: 768px) {
     .mobile-nav a { text-align: left !important; padding-left: 20px !important; justify-content: flex-start !important; }
     .mobile-dropdown-toggle { justify-content: flex-start !important; padding-left: 20px !important; }
     .mobile-dropdown-menu a { padding-left: 40px !important; text-align: left !important; }
   }
 
-  /* MODAL CAROUSEL */
+  /* 3. MODAL CAROUSEL (Slide Kanan-Kiri) */
   .carousel-container { position: relative; width: 100%; min-height: 400px; }
   .carousel-slide { display: none; animation: fadeEffect 0.5s; }
   .carousel-slide.active { display: block; }
@@ -74,7 +76,7 @@
   }
   .dot.active { background-color: var(--primary); transform: scale(1.2); }
 
-  /* BACK TO TOP */
+  /* 4. BACK TO TOP */
   #backToTop {
     display: none; position: fixed; bottom: 80px; right: 20px; z-index: 99;
     border: none; outline: none; background-color: var(--primary);
@@ -115,6 +117,7 @@
   <p style="text-align:center;max-width:900px;margin:8px auto;color:var(--muted)">Klik produk untuk melihat detail spesifikasi lengkap dan foto produk.</p>
   
   <div class="products-grid" style="margin-top:18px">
+    
     <div class="card gallery-item" onclick="openProductModal(
       'H-Beam', 
       'assets/images/product_01.jpg', 
@@ -141,22 +144,201 @@
       <img src="assets/images/thumbs/product_02.jpg" alt="Wide flange (WF)"><div style="margin-top:8px;font-weight:700">Wide flange (WF)</div>
     </div>
     
-    <div class="card gallery-item" onclick="openProductModal('Besi Siku','assets/images/product_03.jpg','Panjang 12 M','SNI','KPSS','3-12 mm','Besi siku serbaguna.',[])"><img src="assets/images/thumbs/product_03.jpg" alt="Siku"><div style="margin-top:8px;font-weight:700">Besi Siku</div></div>
-    <div class="card gallery-item" onclick="openProductModal('UNP Channel','assets/images/product_04.jpg','Panjang 12 M','SNI','KPSS','5-10 mm','UNP Channel.',[])"><img src="assets/images/thumbs/product_04.jpg" alt="UNP"><div style="margin-top:8px;font-weight:700">UNP Channel</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Hollow Hitam','assets/images/product_05.jpg','6 M','SNI','','1.2-2.0 mm','Hollow Hitam.',[])"><img src="assets/images/thumbs/product_05.jpg" alt="Hollow Hitam"><div style="margin-top:8px;font-weight:700">Hollow Hitam</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Hollow Galvanis','assets/images/product_06.jpg','6 M','SNI','','1.2-2.0 mm','Hollow Galvanis.',[])"><img src="assets/images/thumbs/product_06.jpg" alt="Hollow Galvanis"><div style="margin-top:8px;font-weight:700">Hollow Galvanis</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Plat SS400','assets/images/product_07.jpg','4x8 Feet','SNI','KS','4-50 mm','Plat SS400.',[])"><img src="assets/images/thumbs/product_07.jpg" alt="Plat SS400"><div style="margin-top:8px;font-weight:700">Plat SS400</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Plat Bordes','assets/images/product_08.jpg','4x8 Feet','SNI','','4-6 mm','Plat Bordes.',[])"><img src="assets/images/thumbs/product_08.jpg" alt="Plat Bordes"><div style="margin-top:8px;font-weight:700">Plat Bordes</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Wiremesh','assets/images/product_09.jpg','4x8 Feet','SNI','','4-12 mm','Wiremesh.',[])"><img src="assets/images/thumbs/product_09.jpg" alt="Wiremesh"><div style="margin-top:8px;font-weight:700">Wiremesh</div></div>
-    <div class="card gallery-item" onclick="openProductModal('As S45C','assets/images/product_10.jpg','Custom','SNI','','Solid','As S45C.',[])"><img src="assets/images/thumbs/product_10.jpg" alt="As S45C"><div style="margin-top:8px;font-weight:700">As S45C</div></div>
-    <div class="card gallery-item" onclick="openProductModal('As St41','assets/images/product_11.jpg','Custom','SNI','','6-20 mm','As St41.',[])"><img src="assets/images/thumbs/product_11.jpg" alt="As St41"><div style="margin-top:8px;font-weight:700">As St41</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Pipa SCH 40','assets/images/product_12.jpg','12 M','SNI','Spindo','SCH 40','Pipa SCH 40.',[])"><img src="assets/images/thumbs/product_12.jpg" alt="Pipa SCH 40"><div style="margin-top:8px;font-weight:700">Pipa SCH 40</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Pipa SCH 80','assets/images/product_13.jpg','12 M','SNI','Spindo','SCH 80','Pipa SCH 80.',[])"><img src="assets/images/thumbs/product_13.jpg" alt="Pipa SCH 80"><div style="margin-top:8px;font-weight:700">Pipa SCH 80</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Pipa SCH 120','assets/images/product_14.jpg','12 M','SNI','Spindo','SCH 120','Pipa SCH 120.',[])"><img src="assets/images/thumbs/product_14.jpg" alt="Pipa SCH 120"><div style="margin-top:8px;font-weight:700">Pipa SCH 120</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Nako','assets/images/product_15.jpg','Custom','SNI','','3-8 mm','Nako.',[])"><img src="assets/images/thumbs/product_15.jpg" alt="Nako"><div style="margin-top:8px;font-weight:700">Nako</div></div>
-    <div class="card gallery-item" onclick="openProductModal('INP Beam','assets/images/product_16.jpg','12 M','SNI','KPSS','5-10 mm','INP Beam.',[])"><img src="assets/images/thumbs/product_16.jpg" alt="INP Beam"><div style="margin-top:8px;font-weight:700">INP Beam</div></div>
-    <div class="card gallery-item" onclick="openProductModal('Besi Ulir','assets/images/product_17.jpg','12 M','SNI','BPS','','Besi Ulir.',[])"><img src="assets/images/thumbs/product_17.jpg" alt="Besi Ulir"><div style="margin-top:8px;font-weight:700">Besi Ulir</div></div>
-
+    <div class="card gallery-item" onclick="openProductModal(
+      'Besi Siku', 
+      'assets/images/product_03.jpg', 
+      'Panjang 12 Meter & 6 Meter', 
+      'SNI', 
+      'KPSS', 
+      '3 mm - 12 mm', 
+      'Besi siku adalah material serbaguna untuk rangka ringan hingga aplikasi teknik seperti rak, rangka mesin, pagar, dan dudukan mekanikal. Profil sudut 90° memberikan kekuatan torsi yang baik, mudah dipotong, dilas, serta dipadukan dengan berbagai sambungan. Tanyakan ukuran yang tersedia dan dapatkan harga kompetitif untuk pembelian hari ini.',
+      ['30 x 30 x T 2 x 6 M','35 x 35 x T 2 x 6 M','30 x 30 x T 2.5 x 6 M','35 x 35 x T 2.5 x 6 M','30 x 30 x T 3 x 6 M','35 x 35 x T 3 x 6 M','40 x 40 x T 3 x 6 M','40 x 40 x T 3.5 x 6 M','50 x 50 x T 3.5 x 6 M','40 x 40 x T 4 x 6 M','50 x 50 x T 4 x 6 M','40 x 40 x T 4 x 6 M','50 x 50 x T 5 x 6 M','60 x 60 x T 5 x 6 M','60 x 60 x T 5.5 x 6 M','60 x 60 x T 6 x 6 M','69 x 69 x T 6.5 x 6 M','69 x 69 x T 6.8 x 6 M','70 x 70 x T 7 x 6 M','74 x 74 x T 6 x 6 M','74 x 74 x T 6.5 x 6 M','74 x 74 x T 7 x 6 M','79 x 79 x T 7.8 x 6 M','80 x 80 x T 8 x 6 M','90 x 90 x T 9 x 6 M','90 x 90 x T 9 x 12 M','100 x 100 x T 8 x 6 M','100 x 100 x T 10 x 6 M','100 x 100 x T 8 x 12 M','100 x 100 x T 10 x 12 M','120 x 120 x T 10 x 6 M','120 x 120 x T 10 x 12 M','120 x 120 x T 12 x 6 M','120 x 120 x T 12 x 12 M','150 x 150 x T 12 x 6 M','150 x 150 x T 12 x 12 M','150 x 150 x T 15 x 6 M','150 x 150 x T 15 x 12 M']
+    )">
+      <img src="assets/images/thumbs/product_03.jpg" alt="Siku"><div style="margin-top:8px;font-weight:700">Siku</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'UNP Channel', 
+      'assets/images/product_04.jpg', 
+      'Panjang 12 Meter & 6 Meter', 
+      'SNI', 
+      'KPSS', 
+      '5 mm - 10 mm', 
+      'UNP Channel umum digunakan untuk rangka conveyor, rangka mesin, dudukan motor, serta struktur pendukung horizontal. Bentuk channel memberikan ketahanan terhadap tekukan dan distribusi beban merata, sehingga menjadi pilihan ekonomis pada konstruksi dan fabrikasi industri. Segera hubungi kami untuk stok terbaru dan penawaran khusus proyek.',
+      ['50 x 31 x T 2.5 x 6 M','65 x 39 x T 2.8 x 6 M','80 x 42 x T 3 x 6 M','99 x 48 x T 3 x 6 M','100 x 49 x T 5 x 6 M','100 x 48 x T 3.2 x 6 M','100 x 52 x T 5 x 6 M','100 x 50 x T 5.5 x 6 M','120 x 56 x T 4.5 x 6 M','125 x 62 x T 5.2 x 6 M','150 x 74 x T 5 x 6 M','150 x 75 x T 6 x 6 M','150 x 75 x T 6.5 x 6 M','150 x 75 x T 6.5 x 6 M','160 x 63 x T 6.5 x 6 M','160 x 63 x T 6.5 x 12 M','180 x 75 x T 6.3 x 6 M','180 x 75 x T 6.3 x 12 M','200 x 75 x T 7 x 6 M','200 x 75 x T 7 x 12 M','200 x 78 x T 9 x 6 M','200 x 78 x T 9 x 12 M']
+    )">
+      <img src="assets/images/thumbs/product_04.jpg" alt="UNP"><div style="margin-top:8px;font-weight:700">UNP</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Hollow Hitam', 
+      'assets/images/product_05.jpg', 
+      '6 M', 
+      'SNI', 
+      '', 
+      '1.2 mm - 2.0 mm', 
+      'Hollow hitam digunakan untuk konstruksi interior dan aplikasi rangka ringan seperti kanopi, partisi, railing, pintu, dan furnitur. Material ini mudah dibentuk dan dilas, sehingga menjadi pilihan efisien untuk pekerjaan estetis dan non-korosif. Dapatkan ukuran yang sesuai dan harga terbaik hanya dengan menghubungi kami.',
+      []
+    )">
+      <img src="assets/images/thumbs/product_05.jpg" alt="Hollow Hitam"><div style="margin-top:8px;font-weight:700">Hollow Hitam</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Hollow Galvanis', 
+      'assets/images/product_06.jpg', 
+      'Panjang 12 Meter & 6 Meter', 
+      'SNI', 
+      '', 
+      '1.2 mm - 2.0 mm', 
+      'Hollow galvanis memiliki perlindungan anti-karat sehingga cocok untuk area outdoor dan lingkungan lembap seperti pagar, rangka façade, kanopi, dan struktur eksterior. Lapisan zinc memperpanjang umur pakai sekaligus menekan kebutuhan perawatan. Pesan sekarang dan nikmati solusi tahan korosi untuk proyek Anda.',
+      ['15 x 35 x T 1.1 x 6 M','15 x 35 x T 1.5 x 6 M','35 x 35 x T 1.1 x 6 M','35 x 35 x T 1.5 x 6 M','35 x 55 x T 1.1 x 6 M','35 x 55 x T 1.5 x 6 M','20 x 40 x T 1.1 x 6 M','20 x 40 x T 1.5 x 6 M','40 x 40 x T 1.1 x 6 M','40 x 40 x T 1.5 x 6 M','40 x 60 x T 1.1 x 6 M','40 x 60 x T 1.5 x 6 M']
+    )">
+      <img src="assets/images/thumbs/product_06.jpg" alt="Hollow Galvanis"><div style="margin-top:8px;font-weight:700">Hollow Galvanis</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Plat SS400', 
+      'assets/images/product_07.jpg', 
+      '4 Feet x 8 Feet, 5 Feet x 20 Feet, 6 Feet x 20 Feet', 
+      'SNI', 
+      'Krakatau Steel & GRP', 
+      '4 mm - 50 mm', 
+      'Plat baja SS400 digunakan dalam fabrikasi, base plate, bracket mesin, perkuatan struktur, dan komponen konstruksi. Material ini memiliki ketangguhan yang baik, mudah dibending, dibor, dan dilas sehingga efisien untuk manufaktur dan proyek teknik. Hubungi kami untuk pilihan ketebalan lengkap dan harga grosir.',
+      ['2 mm', '3 mm', '4 mm', '5 mm', '6 mm', '8 mm', '10 mm', '12 mm', '16 mm', '18 mm', '19 mm', '20 mm', '22 mm', '25 mm', '28 mm', '30 mm', '32 mm', '35 mm', '38 mm', '40 mm']
+    )">
+      <img src="assets/images/thumbs/product_07.jpg" alt="Plat SS400"><div style="margin-top:8px;font-weight:700">Plat SS400</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Plat Bordes', 
+      'assets/images/product_08.jpg', 
+      '4 Feet x 8 Feet', 
+      'SNI', 
+      '', 
+      '4 mm - 6 mm', 
+      'Plat bordes adalah plat baja dengan permukaan anti-slip, umum dipakai untuk lantai industri, tangga, platform kerja, loading area, dan deck kendaraan. Tekstur motifnya meningkatkan keselamatan kerja dan tahan terhadap penggunaan berat. Tanyakan stok dan dapatkan penawaran cepat untuk kebutuhan proyek Anda.',
+      ['1.5 mm', '2 mm', '3 mm', '4 mm', '4.8 mm', '6 mm', '8 mm']
+    )">
+      <img src="assets/images/thumbs/product_08.jpg" alt="Plat Bordes"><div style="margin-top:8px;font-weight:700">Plat Bordes</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Wiremesh', 
+      'assets/images/product_09.jpg', 
+      '4 Feet x 8 Feet', 
+      'SNI', 
+      '', 
+      '4 mm - 12 mm', 
+      'Wiremesh merupakan tulangan siap pakai yang mempercepat instalasi pada pengecoran lantai, jalan, slab beton, dan perkuatan struktur. Presisi jarak kawat memastikan distribusi beban merata dan kualitas hasil pengecoran lebih konsisten. Pesan wiremesh sesuai ukuran proyek dan dapatkan harga terbaik.',
+      ['4 mm', '5 mm', '6 mm', '7 mm', '8 mm', '9 mm', '10 mm']
+    )">
+      <img src="assets/images/thumbs/product_09.jpg" alt="Wiremesh"><div style="margin-top:8px;font-weight:700">Wiremesh</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'As S45C', 
+      'assets/images/product_10.jpg', 
+      'Custom Panjang', 
+      'SNI', 
+      '', 
+      'Solid Bar', 
+      'As S45C adalah material carbon steel untuk komponen mekanik yang membutuhkan kekuatan dan ketahanan aus, seperti shaft, pin, spindle, coupling, dan rotating parts. Cocok untuk machining dan heat treatment untuk meningkatkan hardness. Hubungi kami untuk diameter lengkap dan rekomendasi penggunaan.',
+      ['6 mm', '8 mm', '10 mm', '12 mm', '16 mm', '18 mm', '19 mm', '20 mm', '22 mm', '25 mm', '28 mm', '30 mm', '32 mm', '35 mm', '38 mm', '40 mm', '45 mm', '50 mm', '55 mm', '60 mm', '65 mm', '70 mm', '75 mm', '80 mm', '85 mm', '90 mm', '95 mm', '100 mm', '105 mm', '110 mm', '115 mm', '120 mm', '125 mm', '130 mm', '140 mm', '150 mm', '160 mm', '170 mm', '180 mm', '190 mm', '200 mm', '250 mm']
+    )">
+      <img src="assets/images/thumbs/product_10.jpg" alt="As S45C"><div style="margin-top:8px;font-weight:700">As S45C</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'As St41/Assental', 
+      'assets/images/product_11.jpg', 
+      'Custom Panjang', 
+      'SNI', 
+      '', 
+      '6 mm - 20 mm', 
+      'As St41 merupakan material baja karbon standar yang banyak digunakan untuk komponen umum dalam industri, seperti shaft ringan, bantalan dudukan, pin, engsel, konektor, dan rangka mekanikal. Material ini mudah dibubut, dilas, dan dibentuk, sehingga cocok untuk aplikasi fabrikasi yang tidak membutuhkan kekuatan tinggi. Hubungi kami untuk ketersediaan ukuran dan konsultasi penggunaan yang sesuai.',
+      ['4 mm', '5 mm', '6 mm', '8 mm', '10 mm', '12 mm', '16 mm', '18 mm', '19 mm', '20 mm', '22 mm', '25 mm', '28 mm', '30 mm', '32 mm', '35 mm', '38 mm', '40 mm', '45 mm', '50 mm', '63 mm', '76 mm']
+    )">
+      <img src="assets/images/thumbs/product_11.jpg" alt="As St41/Assental"><div style="margin-top:8px;font-weight:700">As St41/Assental</div>
+    </div>
+    
+    <div class="card gallery-item" data-product='{
+      "name": "Pipa SCH 40",
+      "image": "assets/images/product_12.jpg",
+      "size": "Panjang 12 M dan 6 M",
+      "standard": "SNI",
+      "brand": "Spindo",
+      "thickness": "SCH 40",
+      "description": "Pipa SCH 40 digunakan pada sistem perpipaan air, instalasi plumbing, jalur kompresor, rangka konstruksi, serta aplikasi tekanan menengah. Ketebalan dinding yang standar membuatnya kuat, aman, dan ekonomis untuk berbagai kebutuhan industri maupun bangunan. Pesan sekarang dan dapatkan rekomendasi diameter terbaik untuk proyek Anda.",
+      "options": []
+    }'>
+      <img src="assets/images/thumbs/product_12.jpg" alt="Pipa SCH 40"><div style="margin-top:8px;font-weight:700">Pipa SCH 40</div>
+    </div>
+    
+    <div class="card gallery-item" data-product='{
+      "name": "Pipa SCH 80",
+      "image": "assets/images/product_13.jpg",
+      "size": "Pannjang 12 M dan 6 M",
+      "standard": "SNI",
+      "brand": "Spindo",
+      "thickness": "SCH 80",
+      "description": "Pipa SCH 80 memiliki ketebalan lebih besar dibanding SCH 40 sehingga mampu menahan tekanan tinggi, fluida berat, dan lingkungan kerja yang lebih ekstrem. Umumnya digunakan untuk industri manufaktur, boiler line, oil & gas, serta sistem tekanan tinggi lainnya. Tanyakan stok terbaru dan dapatkan penawaran spesial untuk pembelian proyek.",
+      "options": []
+    }'>
+      <img src="assets/images/thumbs/product_13.jpg" alt="Pipa SCH 80"><div style="margin-top:8px;font-weight:700">Pipa SCH 80</div>
+    </div>
+    
+    <div class="card gallery-item" data-product='{
+      "name": "Pipa SCH 120",
+      "image": "assets/images/product_14.jpg",
+      "size": "Panjang 12 M dan 6 M",
+      "standard": "SNI",
+      "brand": "Spindo",
+      "thickness": "SCH 120",
+      "description": "Pipa SCH 120 merupakan pilihan untuk aplikasi dengan tekanan sangat tinggi dan sistem kerja yang membutuhkan faktor keamanan maksimal. Digunakan pada jalur fluida teknis, proses industri berat, dan area berisiko tinggi. Hubungi kami untuk spesifikasi teknis dan penawaran harga terbaik.",
+      "options": []
+    }'>
+      <img src="assets/images/thumbs/product_14.jpg" alt="Pipa SCH 120"><div style="margin-top:8px;font-weight:700">Pipa SCH 120</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Nako/As Kotak', 
+      'assets/images/product_15.jpg', 
+      'Custom Panjang', 
+      'SNI', 
+      '', 
+      '3 mm - 8 mm', 
+      'Nako atau as kotak digunakan untuk aplikasi dekoratif, rangka furnitur, konstruksi ringan, jeruji, partisi, serta komponen estetika yang membutuhkan tampilan rapi dan simetris. Material ini mudah dipotong, dibor, dan dilas sehingga fleksibel untuk berbagai desain. Pesan sekarang dan dapatkan ukuran yang paling cocok untuk kebutuhan Anda.',
+      []
+    )">
+      <img src="assets/images/thumbs/product_15.jpg" alt="Nako/As Kotak"><div style="margin-top:8px;font-weight:700">Nako/As Kotak</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'INP Beam', 
+      'assets/images/product_16.jpg', 
+      'Panjang 12 M & 6 M', 
+      'SNI', 
+      'KPSS', 
+      '5 mm - 10 mm', 
+      'INP Beam merupakan profil baja untuk konstruksi ringan hingga menengah, sering digunakan pada purlin, rangka atap, dudukan struktur, dan aplikasi ekonomis yang tidak menuntut daya dukung sangat tinggi. Profilnya memberikan efisiensi penggunaan material namun tetap kuat dan stabil. Tanyakan ukuran yang tersedia dan dapatkan harga terbaik untuk proyek.',
+      ['98 x 49 x 3 x T 5 x 6 M','98 x 49 x 3 x T 5 x 12 M','100 x 50 x 5 x T 7 x 6 M','180 x 94 x 6.6 x T 10.7 x 6 M','180 x 94 x 6.6 x T 10.7 x 12 M','200 x 100 x 7 x T 11.4 x 6 M','200 x 100 x 7 x T 11.4 x 12 M','250 x 116 x 8 x T 13 x 12 M','250 x 118 x 10 x T 13 x 12 M']
+    )">
+      <img src="assets/images/thumbs/product_16.jpg" alt="INP Beam"><div style="margin-top:8px;font-weight:700">INP Beam</div>
+    </div>
+    
+    <div class="card gallery-item" onclick="openProductModal(
+      'Besi Ulir/Deformed Bar', 
+      'assets/images/product_17.jpg', 
+      'Panjang 12 M', 
+      'SNI', 
+      'BPS', 
+      '', 
+      'Besi ulir digunakan sebagai tulangan beton karena pola ulirnya memberikan daya rekat yang kuat dengan material beton, meningkatkan kekuatan struktur secara keseluruhan. Umumnya dipakai untuk kolom, balok, lantai, jalan, jembatan, dan konstruksi bertulang lainnya. Hubungi kami untuk diameter lengkap dan penawaran cepat untuk kebutuhan proyek Anda.',
+      []
+    )">
+      <img src="assets/images/thumbs/product_17.jpg" alt="Besi Ulir/Deformed Bar"><div style="margin-top:8px;font-weight:700">Besi Ulir/Deformed Bar</div>
+    </div>
+    
   </div>
 </section>
 
@@ -165,32 +347,47 @@
   <p style="text-align:center;max-width:900px;margin:8px auto;color:var(--muted)">Layanan profesional untuk mendukung kebutuhan proyek konstruksi dan fabrikasi Anda. Silakan hubungi kami untuk informasi lebih lanjut.</p>
   
   <div class="services-grid" style="margin-top:40px">
-    
     <div class="service-card">
       <div class="service-icon"><i class="fas fa-cut"></i></div>
       <h3 style="color:var(--primary);margin-bottom:12px">Jasa Pemotongan</h3>
       <p style="color:var(--muted);line-height:1.6">Pemotongan presisi dengan mesin beaver, handy dan semi robot.</p>
     </div>
-        
     <div class="service-card">
       <div class="service-icon"><i class="fas fa-tools"></i></div>
       <h3 style="color:var(--primary);margin-bottom:12px">Jasa Pengelasan</h3>
       <p style="color:var(--muted);line-height:1.6">Pengelasan profesional untuk sambungan struktural dengan kualitas terjamin.</p>
     </div>
-    
     <div class="service-card">
       <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
       <h3 style="color:var(--primary);margin-bottom:12px">Konsultasi Teknik</h3>
       <p style="color:var(--muted);line-height:1.6">Konsultasi gratis untuk pemilihan material dan solusi teknis terbaik.</p>
     </div>
-    
   </div>
 
   <div class="products-grid" style="margin-top:40px">
-    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto23.jpeg', 'Laser Cutting')"><img src="assets/images/services/foto23.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700">Laser Cutting</div></div>
-    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto21.jpeg', 'Pemotongan')"><img src="assets/images/services/foto21.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700">Pemotongan</div></div>
-    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto20.jpeg', 'Pengelasan')"><img src="assets/images/services/foto20.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700">Pengelasan</div></div>
-    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto22.jpeg', 'Pengukuran')"><img src="assets/images/services/foto22.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700">Pengukuran</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto23.jpeg', 'Pemotongan Presisi')"><img src="assets/images/services/foto23.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Laser Cutting Besi</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto21.jpeg', 'Pemotongan Presisi')"><img src="assets/images/services/foto21.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Pemotongan</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto20.jpeg', 'Pengelasan Presisi')"><img src="assets/images/services/foto20.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Pengelasan</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto22.jpeg', 'Pengukuran Presisi')"><img src="assets/images/services/foto22.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Pengukuran</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto19.jpeg', 'Finishing')"><img src="assets/images/services/foto19.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Finishing</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto1.jpeg', 'Jasa Pemotongan Presisi')"><img src="assets/images/services/foto1.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Bulat</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto2.jpeg', 'Jasa Bending Material')"><img src="assets/images/services/foto2.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plate Bulat</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto3.jpeg', 'Jasa Pengelasan Profesional')"><img src="assets/images/services/foto3.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Kotak</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto4.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto4.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Kotak</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto5.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto5.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Bulat</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto6.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto6.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Bulat</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto7.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto7.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto8.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto8.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto9.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto9.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Bulat</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto10.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto10.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto11.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto11.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto12.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto12.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto13.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto13.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto14.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto14.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto15.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto15.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto16.jpeg', 'Konsultasi Teknik')"><img src="assets/images/services/foto16.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Plat Mal</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto17.jpeg', 'Base Plat')"><img src="assets/images/services/foto17.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Base Plate</div></div>
+    <div class="card service-photo" onclick="openServiceModal('assets/images/services/foto18.jpeg', 'Base Plate')"><img src="assets/images/services/foto18.jpeg" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="margin-top:8px;font-weight:700;text-align:center">Base Plate</div></div>
   </div>
 </section>
 

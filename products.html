@@ -19,12 +19,20 @@
 <style>
   /* CSS TAMBAHAN KHUSUS HALAMAN INI */
 
-  /* 1. GAYA KHUSUS VIDEO AGAR RAPI & RESPONSIF */
+  /* 1. LAYOUT GRID VIDEO (BARU DITAMBAHKAN) */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Kolom untuk Laptop */
+    gap: 24px; /* Jarak antar video */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* 2. GAYA KHUSUS VIDEO AGAR RAPI & RESPONSIF */
   .video-container {
     position: relative;
     width: 100%;
-    max-width: 900px; /* Lebar maksimal video */
-    margin: 0 auto;   /* Posisi tengah otomatis */
+    /* max-width dihapus agar mengikuti grid */
     padding-bottom: 56.25%; /* Rasio 16:9 agar responsif */
     height: 0;
     border-radius: 12px;
@@ -42,14 +50,18 @@
     height: 100%;
   }
 
-  /* 2. MENU MOBILE RATA KIRI */
+  /* 3. RESPONSIVE MOBILE */
   @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: 1fr; /* 1 Kolom (Atas-Bawah) untuk HP */
+    }
+    
     .mobile-nav a { text-align: left !important; padding-left: 20px !important; justify-content: flex-start !important; }
     .mobile-dropdown-toggle { justify-content: flex-start !important; padding-left: 20px !important; }
     .mobile-dropdown-menu a { padding-left: 40px !important; text-align: left !important; }
   }
 
-  /* 3. MODAL CAROUSEL (Slide Kanan-Kiri) */
+  /* 4. MODAL CAROUSEL (Slide Kanan-Kiri) */
   .carousel-container { position: relative; width: 100%; min-height: 400px; }
   .carousel-slide { display: none; animation: fadeEffect 0.5s; }
   .carousel-slide.active { display: block; }
@@ -76,7 +88,7 @@
   }
   .dot.active { background-color: var(--primary); transform: scale(1.2); }
 
-  /* 4. BACK TO TOP */
+  /* 5. BACK TO TOP */
   #backToTop {
     display: none; position: fixed; bottom: 80px; right: 20px; z-index: 99;
     border: none; outline: none; background-color: var(--primary);
@@ -410,14 +422,46 @@
     Lihat proses pengerjaan dan kualitas material kami secara langsung.
   </p>
   
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/jbU7DKe83J0" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen>
-    </iframe>
+  <div class="video-grid">
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/jbU7DKe83J0" 
+        title="Video 1" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/mtxURzo8108" 
+        title="Video 2" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/FIAhqyMFXs0" 
+        title="Video 3" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/u7nqEZj12qw" 
+        title="Video 4" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
 </section>
 <footer class="footer-enhanced">
